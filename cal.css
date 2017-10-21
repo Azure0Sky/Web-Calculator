@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    background-color: rgb(245, 245, 245);
+}
+
+img {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    margin-left: -72px;
+}
+
+#calculator-container {
+    height: 432px;
+    width: 700px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -391px;
+    margin-top: -242px;
+    padding: 25px 40px;
+    border: 0;
+    border-radius: 2%;
+    background-color: white;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.16), 0 0 0 2px rgba(0,0,0,0.08);
+}
+
+#ans-bar {
+    width: 100%;
+    height: 10%;
+    text-align: right;
+}
+
+#ans-bar span {
+    color: #757575;
+    margin-right: 3%;
+    position: relative;
+    top: 25%;
+}
+
+#exp-bar {
+    text-align: right;
+    height: 15%;
+    overflow: hidden;
+}
+
+#exp-bar span {
+    margin-right: 7%;
+    position: relative;
+    top: 15%;
+    font-size: 200%;
+}
+
+#button-area {
+    height: auto;
+}
+
+.button-bar {
+    height: 54px;
+    margin-top: 1.5%;
+}
+
+.one-button {
+    float: left;
+    height: 100%;
+    width: 18.4%;
+    text-align: center;
+    line-height: 54px;
+    cursor: pointer;
+    background-color: #F5F5F5;
+    margin-right: 2%;
+    font-size: 130%;
+    transition: box-shadow 0.2s, background-color 0.1s;
+    border-radius: 3px;
+}
+
+.one-button:hover {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+}
+
+.one-button:active {
+    background-color: #DCDDDD;
+}
+
+.one-button:last-child {
+    margin-right: 0;
+}
+
+#equal-sign {
+    background-image: linear-gradient(to bottom, #4D90FE, #4787ED);
+    color: white;
+    font-weight: bold;
+    font-size: 135%;
+}
+
+#equal-sign:hover {
+    background-image: linear-gradient(to bottom, #4D90FE, #357AE8);
+}
+
+.operator {
+    background-color: #D6D6D6;
+}
