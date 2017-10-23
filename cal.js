@@ -47,7 +47,7 @@ function CallNum()
 
     var len = displayExp.textContent.length;
     //check whether the 0 in the end is valid
-    if ( displayExp.textContent.endsWith( '0' ) && 
+    if ( displayExp.textContent.endsWith( '0' ) &&
          isNaN( displayExp.textContent[len-2] ) && 
          displayExp.textContent[len-2] != '.' ) {
         Delete();
@@ -60,6 +60,9 @@ function CallNum()
 
     displayExp.textContent += this.textContent;
     globalExp += this.textContent;
+
+    if ( globalExp == '0' )
+        globalExp = '';
 }
 
 function CallOperator()
@@ -187,7 +190,8 @@ function Delete()
     var iPos = displayExp.textContent.lastIndexOf( 'i' ),
         oPos = displayExp.textContent.lastIndexOf( 'o' ),
         aPos = displayExp.textContent.lastIndexOf( 'a' ),
-        rPos = displayExp.textContent.lastIndexOf( '√' );
+        rPos = displayExp.textContent.lastIndexOf( '√' ),
+        AnsPos = displayExp.textContent.lastIndexOf( 'A' );
 
     if ( ( iPos != -1 && iPos + 2 == pos ) ||   
          ( oPos != -1 && oPos + 2 == pos ) ||
@@ -195,16 +199,18 @@ function Delete()
         pos -= 3;
         globalPos -= 8;
         --numOfParen;
-    } else if ( ( rPos != -1 && rPos + 1 == pos ) ) {
+    } else if ( rPos != -1 && rPos + 1 == pos ) {
         pos -= 1;
         globalPos -= 9;
         --numOfParen;
+    } else if ( AnsPos != -1 && AnsPos + 2 == pos ) {
+        pos -= 2;
+        globalPos -= 2;
     }
 
     displayExp.textContent = displayExp.textContent.substring( 0, pos );
-    if ( displayExp.textContent.length == 0 ) {
+    if ( displayExp.textContent.length == 0 )
         displayExp.textContent = '0';
-    }
 
     globalExp = globalExp.substring( 0, globalPos );
     if ( globalExp == '0' )
@@ -212,9 +218,9 @@ function Delete()
 }
 
 function Clear() {
-     document.getElementById('exp-bar').childNodes[1].textContent = '0';
-     globalExp = '';
-     numOfParen = 0;
+    document.getElementById('exp-bar').childNodes[1].textContent = '0';
+    globalExp = '';
+    numOfParen = 0;
 }
 
 //show 15 numbers at most
